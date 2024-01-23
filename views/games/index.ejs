@@ -1,16 +1,9 @@
-<%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
 
-<main>
-  <h1>Hey, <%= user ? user.profile.name : "gamer" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
-  <% } %>
-</main>
+<section>
+  <h1>The Ultimate Gamer Series! 🎮</h1>
+  <h2>Video Games Collection:</h2>
+</section>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>
