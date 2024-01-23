@@ -2,5 +2,19 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<p>From the Elite Gamer <%= game.owner.name %>...</p>
+	<p>From the Elite Gamer of <%= game.owner.name %>...</p>
   <h1><%= game.name %> 🎮</h1>
+  <div>Game: </div>
+  <div><%= game.name %></div>
+  <div>Status: </div>
+  <div><%= game.status %></div>
+  <div>Platform: </div>
+  <div><%= game.platform %></div>
+  <% if (game.owner.equals(user?.profile._id)) { %>
+    <a href="/games/<%= game._id %>/edit">
+      <button class="btn">Edit 🎮🚧</button>
+    </a>
+    <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete 🎮💀</button>
+    </form>
+  <% } %>
