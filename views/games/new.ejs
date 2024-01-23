@@ -1,4 +1,42 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<section>
+  <h1>The Ultimate Gamer Series! 🎮</h1>
+	<%# New Code Below %>
+  <% if (user) { %>
+    <h2>Add a Video Game!</h2>
+    <form id="new-form" action="/games" method="POST">
+      <label>
+        Name: 
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label for="status-select">Status:</label>
+      <select name="status" id="status-select">
+        <option value="Interested">Interested</option>
+        <option value="Currently Playing" selected>Currently Playing</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <label for="platform-select">Platform:</label>
+      <select name="platform" id="platform-select">
+        <option value="Mobile">Mobile</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="PC" selected>PC</option>
+        <option value="Playstation">Playstation</option>
+        <option value="Xbox">Xbox</option>
+      </select>
+      <button type="submit">Save Game</button>
+    </form>
+  <% } %>
+  <h2>All Video Games:</h2>
+  <ul>
+    <% games.forEach(game => { %>
+      <li>
+        Game 
+        <a href="/games/<%= game._id %>"><%= game.name %></a> 
+      </li>
+    <% }) %>
+  </ul>
+</section>
+
 <%- include('../partials/footer') %>
