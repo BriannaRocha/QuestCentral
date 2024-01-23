@@ -3,7 +3,55 @@
 
 <section>
   <h1>The Ultimate Gamer Series! 🎮</h1>
-  <h2>Video Games Collection:</h2>
+	<%# New Code Below %>
+  <% if (user) { %>
+    <h2>Add a Video Game!</h2>
+    <form id="new-form" action="/games" method="POST">
+      <label>
+        Name: 
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label for="airline-select">Airline:</label>
+      <select name="airline" id="airline-select">
+        <option value="American">American</option>
+        <option value="Southwest">Southwest</option>
+        <option value="United">United</option>
+      </select>
+      <label for="airport-select">Airport:</label>
+      <select name="airport" id="airport-select">
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="LAX">LAX</option>
+        <option value="DEN" selected>DEN</option>
+        <option value="SAN">SAN</option>
+      </select>
+      <label for="flightNo-select">Flight Number:</label>
+      <input 
+        type="number"
+        name="flightNo" 
+        id="flightNo-select"
+        min="10"
+        max="9999"
+      >
+      <label for="departs-input">Departs:</label>
+      <input 
+        type="datetime-local"
+        name="departs" 
+        id="departs-input"
+      >
+      <button type="submit">Save Flight</button>
+    </form>
+  <% } %>
+  <h2>Video Game Collection:</h2>
+  <ul>
+    <% games.forEach(taco => { %>
+      <li>
+        🎮
+        <a href="/games/<%= game._id %>"><%= game.name %></a> 
+        is <%= taco.tasty ? 'tasty' : 'not tasty' %>
+      </li>
+    <% }) %>
+  </ul>
 </section>
 
 <%- include('../partials/footer') %>
