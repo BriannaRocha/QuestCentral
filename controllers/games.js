@@ -15,6 +15,35 @@ function index(req, res) {
   })
 }
 
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  Game.create(req.body)
+  .then(game => {
+    res.redirect('/games')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/games")
+  })
+}
+
+function show(req, res) {
+  Game.findById(req.params.gameId)
+  .populate([
+    {path: "owner"},
+    {path: "comments.author"}
+  ])
+  .then(game => {
+    res.render('games/show', {
+      game,
+      title: "Game show"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/games")
+  })
+}
 
 
 
@@ -23,4 +52,7 @@ function index(req, res) {
 
 export {
   index,
+  create,
+  show,
+
 }
