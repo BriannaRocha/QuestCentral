@@ -11,44 +11,29 @@
         Name: 
         <input type="text" name="name" autocomplete="off">
       </label>
-      <label for="airline-select">Airline:</label>
-      <select name="airline" id="airline-select">
-        <option value="American">American</option>
-        <option value="Southwest">Southwest</option>
-        <option value="United">United</option>
+      <label for="status-select">Status:</label>
+      <select name="status" id="status-select">
+        <option value="Interested">Interested</option>
+        <option value="Currently Playing" selected>Currently Playing</option>
+        <option value="Completed">Completed</option>
       </select>
-      <label for="airport-select">Airport:</label>
-      <select name="airport" id="airport-select">
-        <option value="AUS">AUS</option>
-        <option value="DFW">DFW</option>
-        <option value="LAX">LAX</option>
-        <option value="DEN" selected>DEN</option>
-        <option value="SAN">SAN</option>
+      <label for="platform-select">Platform:</label>
+      <select name="platform" id="platform-select">
+        <option value="Mobile">Mobile</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="PC" selected>PC</option>
+        <option value="Playstation">Playstation</option>
+        <option value="Xbox">Xbox</option>
       </select>
-      <label for="flightNo-select">Flight Number:</label>
-      <input 
-        type="number"
-        name="flightNo" 
-        id="flightNo-select"
-        min="10"
-        max="9999"
-      >
-      <label for="departs-input">Departs:</label>
-      <input 
-        type="datetime-local"
-        name="departs" 
-        id="departs-input"
-      >
-      <button type="submit">Save Flight</button>
+      <button type="submit">Save Game</button>
     </form>
   <% } %>
-  <h2>Video Game Collection:</h2>
+  <h2>All Video Games:</h2>
   <ul>
-    <% games.forEach(taco => { %>
+    <% game.forEach(game => { %>
       <li>
-        🎮
+        🎮 
         <a href="/games/<%= game._id %>"><%= game.name %></a> 
-        is <%= taco.tasty ? 'tasty' : 'not tasty' %>
       </li>
     <% }) %>
   </ul>
