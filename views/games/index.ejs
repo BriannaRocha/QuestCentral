@@ -30,9 +30,9 @@
   <% } %>
   <h2>All Video Games:</h2>
   <ul>
-    <% game.forEach(game => { %>
+    <% games.forEach(game => { %>
       <li>
-        🎮 
+        Game 
         <a href="/games/<%= game._id %>"><%= game.name %></a> 
       </li>
     <% }) %>

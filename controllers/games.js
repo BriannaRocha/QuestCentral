@@ -29,10 +29,7 @@ function create(req, res) {
 
 function show(req, res) {
   Game.findById(req.params.gameId)
-  .populate([
-    {path: "owner"},
-    {path: "comments.author"}
-  ])
+  .populate("owner")
   .then(game => {
     res.render('games/show', {
       game,
@@ -44,11 +41,6 @@ function show(req, res) {
     res.redirect("/games")
   })
 }
-
-
-
-
-
 
 export {
   index,
