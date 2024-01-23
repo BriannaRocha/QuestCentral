@@ -1,5 +1,4 @@
-// Example from Mongoose Flights
-// import { Meal } from "../models/meal.js"
+import { Review } from "../models/review.js"
 
 // function newMeal(req, res) {
 //   Meal.find({}).sort('name')
@@ -26,7 +25,7 @@
 //   })
 // }
 
-// export {
+ export {
 //   newMeal as new,
 //   create
-// }
+ }
