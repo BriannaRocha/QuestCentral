@@ -2,6 +2,13 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
+const noteSchema = new Schema({
+  content: String,
+  author: { type: Schema.Types.ObjectId, ref: 'Profile'}
+}, {
+  timestamps: true
+})
+
 const gameSchema = new Schema({
   name: String,
   status: {
@@ -11,12 +18,12 @@ const gameSchema = new Schema({
   },
   platform: {
     type: String,
-    enum: ['Mobile','Nintendo','PC', 'Playstation', 'Xbox'],
+    enum: ['Mobile', 'Nintendo', 'PC', 'Playstation', 'Xbox', 'Other'],
     default: 'PC'
   },
-  owner: {type: Schema.Types.ObjectId, ref: "Profile"}
+  owner: {type: Schema.Types.ObjectId, ref: "Profile"},
+  notes: [noteSchema]
 }, {
-  reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}],
   timestamps: true,
 })
 
