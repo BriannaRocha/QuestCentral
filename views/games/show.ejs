@@ -18,3 +18,31 @@
       <button class="btn" type="submit">Delete 🎮💀</button>
     </form>
   <% } %>
+  <h2>Notes:</h2>
+  <ul>
+    <% game.notes?.forEach(note => { %>
+      <li>
+        <%= note.content%> 
+        &nbsp;at 
+        <%= note.createdAt.toLocaleString() %>
+        <% if (note.author.equals(user?.profile._id)) { %>
+          <a href="/games/<%= game._id %>/notes/<%= note._id %>/edit">
+            <button class="btn edit-btn">Edit 📝</button>
+          </a>
+          <form action="/games/<%= game._id %>/notes/<%= note._id %>?_method=DELETE" method="POST">
+            <button class="btn delete-btn">Delete 🗑️</button>
+          </form>
+        <% } %> 
+      </li>
+    <% }) %>
+  </ul>
+  <% if (note.author.equals(user?.profile._id)) { %>
+    <h3>Add a Note</h3>
+    <form action="/games/<%= game._id %>/notes" method="POST">
+      <textarea name="content"></textarea><br>
+      <button type="submit">Add Note</button>
+    </form>
+  <% } %>
+</section>
+
+<%- include('../partials/footer') %>

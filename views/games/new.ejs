@@ -2,12 +2,11 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<%# New Code Below %>
   <% if (user) { %>
     <h2>Add a Video Game!</h2>
     <form id="new-form" action="/games" method="POST">
       <label>
-        Name: 
+        Game Title: 
         <input type="text" name="name" autocomplete="off">
       </label>
       <label for="status-select">Status:</label>
