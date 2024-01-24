@@ -23,13 +23,13 @@ function create(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/games")
+    res.redirect('/games')
   })
 }
 
 function show(req, res) {
   Game.findById(req.params.gameId)
-  .populate("owner")
+  .populate('owner')
   .then(game => {
     res.render('games/show', {
       game,
@@ -38,7 +38,149 @@ function show(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/games")
+    res.redirect('/games')
+  })
+}
+
+function edit(req, res) {
+  Game.findById(req.params.gameId)
+  .then(game => {
+    res.render('games/edit', {
+      taco,
+      title: "edit game"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
+function update(req, res) {
+  Game.findById(req.params.tacoId)
+  .then(game => {
+    if (game.owner.equals(req.user.profile._id)) {
+      game.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/games/${game._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
+function deleteGame(req, res) {
+  Game.findById(req.params.gameId)
+  .then(game => {
+    if (game.owner.equals(req.user.profile._id)) {
+      game.deleteOne()
+      .then(() => {
+        res.redirect('/games')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
+function addNote(req, res) {
+  Game.findById(req.params.gameId)
+  .then(game => {
+    req.body.author = req.user.profile._id
+    game.notes.push(req.body)
+    game.save()
+    .then(()=> {
+      res.redirect(`/games/${game._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/games')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
+function editNote(req, res) {
+  // Find the game using it's _id
+  Game.findById(req.params.gameId)
+  .then(game => {
+    // Find the note using its _id
+    const note = game.notes.id(req.params.noteId)
+    // Check to make sure user owns comment
+    if (note.author.equals(req.user.profile._id)) {
+      // Render a view passing the taco and comment and a title
+      res.render('games/editNote',{
+        game,
+        note,
+        title: 'Update Note'
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
+function updateNote(req, res) {
+  Game.findById(req.params.gameId)
+  .then(game => {
+    const note = game.notes.id(req.params.noteId)
+    if (note.author.equals(req.user.profile._id)) {
+      note.set(req.body)
+      game.save()
+      .then(() => {
+        res.redirect(`/games/${game._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/games')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
+  })
+}
+
+function deleteNote(req, res) {
+  Game.findById(req.params.gameId)
+  .then(game => {
+    const note = game.notes.id(req.params.noteId)
+    if (note.author.equals(req.user.profile._id)) {
+      game.notes.remove(note)
+      game.save()
+      .then(() => {
+        res.redirect(`/games/${game._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/games')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/games')
   })
 }
 
@@ -46,5 +188,11 @@ export {
   index,
   create,
   show,
-
+  edit,
+  update,
+  deleteGame as delete,
+  addNote,
+  editNote,
+  updateNote,
+  deleteNote
 }
