@@ -1,0 +1,24 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit Notes:</h1>
+  <form 
+    action="/games/<%= game._id %>/notes/<%= note._id %>?_method=PUT"
+    method="POST"
+  >
+    <label>
+      Game Notes: 
+      <textarea
+        cols="30"
+        rows="5" 
+        type="text"
+        name="content" 
+        autocomplete="off"
+      ><%= note.content %></textarea>
+    </label><br>
+    <button type="submit">Update Note</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
