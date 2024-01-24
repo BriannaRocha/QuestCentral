@@ -22,7 +22,8 @@ const gameSchema = new Schema({
     default: 'PC'
   },
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
-  notes: [noteSchema]
+  notes: [noteSchema],
+  completedDate: Date
 }, {
   timestamps: true,
 })

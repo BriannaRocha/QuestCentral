@@ -2,7 +2,6 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>The Ultimate Gamer Series! 🎮</h1>
 	<%# New Code Below %>
   <% if (user) { %>
     <h2>Add a Video Game!</h2>
@@ -17,6 +16,12 @@
         <option value="Currently Playing" selected>Currently Playing</option>
         <option value="Completed">Completed</option>
       </select>
+      <label for="completedDate-input">Completed Date:</label>
+      <input 
+        type="datetime-local"
+        name="completedDate" 
+        id="completedDate-input"
+      >
       <label for="platform-select">Platform:</label>
       <select name="platform" id="platform-select">
         <option value="Mobile">Mobile</option>
