@@ -2,11 +2,18 @@ import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
 
-
 const reviewSchema = new Schema({
-  name: {type: String, required: true}
-},{
-  timestamps: true
+  name: String,
+  avatar: String,
+  content: {type: String, required: true},
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10
+  }, 
+  recommended: Boolean,
+}, {
+  timestamps: true,
 })
 
 const Review = mongoose.model('Review', reviewSchema)
