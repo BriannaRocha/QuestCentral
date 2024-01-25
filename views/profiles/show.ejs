@@ -1,0 +1,50 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <div>
+    <img 
+      class="profile-avatar"
+      src="<%= profile.avatar %>" 
+      alt="<%= profile.name %>'s avatar"
+    >
+  </div>
+  <h1>It's a - <%= isSelf ? "you" : profile.name %>!</h1>
+  <% if (isSelf) { %>
+    <h2>Add a Gamertag!</h2>
+    <form action="/profiles/cats" method="POST">
+      <label>
+        Name: 
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label for="platform-select">Platform:</label>
+      <select name="platform" id="platform-select">
+        <option value="Epic Games" selected>Epic Games</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="Playstation">Playstation</option>
+        <option value="Steam">Steam</option>
+        <option value="Ubisoft">Ubisoft</option>
+        <option value="Xbox">Xbox</option>
+        <option value="Other">Other</option>
+      </select>
+  <% } %>
+  <% if (profile.gamertags.length) { %>
+    <% profile.gamertags.forEach(gamertag => { %>
+      <% if (isSelf) { %>
+        <form 
+            action="/profiles/gamertags/<%= cat._id %>?_method=DELETE" 
+            method="POST"
+            style="display: inline-block;"
+          >
+            <button type="submit">😸 Free <%= cat.name %></button>
+          </form>
+      <% } %>
+    <% }) %>
+  <% } else { %>
+    <h2>
+      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any cats.
+    </h2> 
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>
