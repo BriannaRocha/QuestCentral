@@ -18,6 +18,12 @@
       <button class="btn" type="submit">Delete 🎮💀</button>
     </form>
   <% } %>
+  <!-- <% if (isSelf) { %>
+    <h2>Add a Review!</h2>
+    <a href="/reviews/<%= game._id %>/new/<%= review._id %>/add">
+      <button class="btn add-btn">Add Review</button>
+    </a>
+  <% } %>   -->
   <h2>Notes:</h2>
   <ul>
     <% game.notes?.forEach(note => { %>
@@ -39,7 +45,7 @@
   <% if (game.owner.equals(user?.profile._id)) { %>
     <h3>Add a Note</h3>
     <form action="/games/<%= game._id %>/notes" method="POST">
-      <textarea name="content"></textarea><br>
+      <textarea name="content" rows="3"></textarea><br>
       <button type="submit">Add Note</button>
     </form>
   <% } %>

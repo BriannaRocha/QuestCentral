@@ -1,0 +1,43 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <div>
+    <img 
+      class="profile-avatar"
+      src="<%= profile.avatar %>" 
+      alt="<%= profile.name %>'s avatar"
+    >
+  </div>
+  <% if (isSelf) { %>
+      <h2>Add a Game Review!</h2>
+      <form id="new-form" action="/reviews" method="POST">
+      <label for="game-select">Game Title:</label>
+      <select name="game" id="game-select">
+        <% games.forEach(function(game) { %>
+          <option><%= game.name %></option>
+        <% }) %>
+      </select>
+      <label for="content-select">Please describe what you liked or disliked from this game!</label>
+      <textarea name="content" rows="5"></textarea><br>
+      <label for="rating-select">On a scale of 1-10, what would you rate this game?</label>
+      <input 
+        type="number"
+        name="ratingNo" 
+        id="ratingNo-select"
+        min="1"
+        max="10"
+      >
+      <label>
+        Would you recommend this video game to others?
+        <input 
+          type="checkbox" 
+          name="recommended" 
+        >
+      </label>
+      <button type="submit">Save Review</button>
+    </form>
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>
