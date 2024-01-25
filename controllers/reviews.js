@@ -1,7 +1,19 @@
 import { Review } from "../models/review.js"
+import { Game } from "../models/game.js"
 
 function newReview(req, res) {
-  res.render('reviews/new')
+  Game.find({owner: req.user.profile._id})
+  .populate('owner')
+  .then(games => {
+    res.render('reviews/new', {
+      games,
+      title: "Add Game Review"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
+  })
 }
 
 function index(req, res) {
