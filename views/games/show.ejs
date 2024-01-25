@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <section>
-	<p>From the Elite Gamer of <%= game.owner.name %>...</p>
+	<p>From the Elite Gamer, <%= game.owner.name %>!</p>
   <h1><%= game.name %> 🎮</h1>
   <div>Game: </div>
   <div><%= game.name %></div>
@@ -36,7 +36,7 @@
       </li>
     <% }) %>
   </ul>
-  <% if (note.author.equals(user?.profile._id)) { %>
+  <% if (game.owner.equals(user?.profile._id)) { %>
     <h3>Add a Note</h3>
     <form action="/games/<%= game._id %>/notes" method="POST">
       <textarea name="content"></textarea><br>

@@ -4,10 +4,12 @@ import { isLoggedIn } from "../middleware/middleware.js"
 
 const router = Router()
 
-// GET localhost:3000/games
-router.get('/', gamesCtrl.index)
+// GET http://localhost:3000/games/new
+router.get('/new', gamesCtrl.new)
 // POST localhost:3000/games
 router.post('/', isLoggedIn, gamesCtrl.create)
+// GET localhost:3000/games
+router.get('/', gamesCtrl.index)
 // GET localhost:3000/games
 router.get('/:gameId', gamesCtrl.show)
 // GET localhost:3000/games/:gameId/edit

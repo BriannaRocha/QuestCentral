@@ -1,17 +1,9 @@
 import { Game } from "../models/game.js"
 import { Review } from "../models/review.js"
 
-function index(req, res) {
-  Game.find({})
-  .then(games => {
-    res.render('games/index', {
-      games,
-      title: "Game"
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect("/")
+function newGame(req, res) {
+  res.render('games/new', {
+    title: 'Add Game'
   })
 }
 
@@ -24,6 +16,20 @@ function create(req, res) {
   .catch(err => {
     console.log(err)
     res.redirect('/games')
+  })
+}
+
+function index(req, res) {
+  Game.find({})
+  .then(games => {
+    res.render('games/index', {
+      games,
+      title: "Game"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/")
   })
 }
 
@@ -46,7 +52,7 @@ function edit(req, res) {
   Game.findById(req.params.gameId)
   .then(game => {
     res.render('games/edit', {
-      taco,
+      game,
       title: "edit game"
     })
   })
@@ -57,7 +63,7 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  Game.findById(req.params.tacoId)
+  Game.findById(req.params.gameId)
   .then(game => {
     if (game.owner.equals(req.user.profile._id)) {
       game.updateOne(req.body)
@@ -120,7 +126,7 @@ function editNote(req, res) {
     const note = game.notes.id(req.params.noteId)
     // Check to make sure user owns comment
     if (note.author.equals(req.user.profile._id)) {
-      // Render a view passing the taco and comment and a title
+      // Render a view passing the game and comment and a title
       res.render('games/editNote',{
         game,
         note,
@@ -185,8 +191,9 @@ function deleteNote(req, res) {
 }
 
 export {
-  index,
+  newGame as new,
   create,
+  index,
   show,
   edit,
   update,
