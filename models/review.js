@@ -13,6 +13,7 @@ const reviewSchema = new Schema({
   }, 
   recommended: Boolean,
   game: {type: Schema.Types.ObjectId, ref: "Game"},
+  owner: {type: Schema.Types.ObjectId, ref: "Profile"},
 }, {
   timestamps: true,
 })
