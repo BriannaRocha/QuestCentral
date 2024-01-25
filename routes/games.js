@@ -5,13 +5,13 @@ import { isLoggedIn } from "../middleware/middleware.js"
 const router = Router()
 
 // GET http://localhost:3000/games/new
-router.get('/new', gamesCtrl.new)
+router.get('/new', isLoggedIn, gamesCtrl.new)
 // POST localhost:3000/games
 router.post('/', isLoggedIn, gamesCtrl.create)
 // GET localhost:3000/games
-router.get('/', gamesCtrl.index)
+router.get('/', isLoggedIn, gamesCtrl.index)
 // GET localhost:3000/games
-router.get('/:gameId', gamesCtrl.show)
+router.get('/:gameId', isLoggedIn, gamesCtrl.show)
 // GET localhost:3000/games/:gameId/edit
 router.get('/:gameId/edit', isLoggedIn, gamesCtrl.edit)
 // PUT localhost:3000/games/:gameId

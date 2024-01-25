@@ -20,7 +20,7 @@ function create(req, res) {
 }
 
 function index(req, res) {
-  Game.find({})
+  Game.find({owner: req.user.profile._id})
   .then(games => {
     res.render('games/index', {
       games,
@@ -119,14 +119,10 @@ function addNote(req, res) {
 }
 
 function editNote(req, res) {
-  // Find the game using it's _id
   Game.findById(req.params.gameId)
   .then(game => {
-    // Find the note using its _id
     const note = game.notes.id(req.params.noteId)
-    // Check to make sure user owns comment
     if (note.author.equals(req.user.profile._id)) {
-      // Render a view passing the game and comment and a title
       res.render('games/editNote',{
         game,
         note,
