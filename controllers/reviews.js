@@ -8,7 +8,8 @@ function index(req, res) {
   Review.find({})
   .then(reviews => {
     res.render('reviews/index', {
-      reviews
+      reviews,
+      title: 'Video Game Reviews'
     })
   })
   .catch(err => {
@@ -34,7 +35,8 @@ function edit(req, res) {
   Review.findById(req.params.reviewId)
   .then(review => {
     res.render('reviews/edit', {
-      review
+      review,
+      title: 'Edit Review'
     })
   })
   .catch(err => {
