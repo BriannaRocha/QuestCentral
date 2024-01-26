@@ -10,7 +10,7 @@
       alt="<%= profile.name %>'s avatar"
     >
   </div>
-  <h1>Hey, <%= isSelf ? "you" : profile.name %>!</h1>
+  <h1>Hey, <%= isSelf ? "gamer" : profile.name %>!</h1>  
   <% if (isSelf) { %>
     <h2>Add a Gamertag!</h2>
     <form action="/profiles/gamertags" method="POST">

@@ -18,12 +18,11 @@
       <button class="btn" type="submit">Delete 🎮💀</button>
     </form>
   <% } %>
-  <!-- <% if (isSelf) { %>
-    <h2>Add a Review!</h2>
-    <a href="/reviews/<%= game._id %>/new/<%= review._id %>/add">
+  <% if (isSelf) { %>
+    <a href="/reviews/new">
       <button class="btn add-btn">Add Review</button>
     </a>
-  <% } %>   -->
+  <% } %>  
   <h2>Notes:</h2>
   <ul>
     <% game.notes?.forEach(note => { %>

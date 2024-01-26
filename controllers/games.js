@@ -37,9 +37,11 @@ function show(req, res) {
   Game.findById(req.params.gameId)
   .populate('owner')
   .then(game => {
+    const isSelf = game.owner._id.equals(req.user.profile._id)
     res.render('games/show', {
       game,
-      title: "Game show"
+      title: "Game show",
+      isSelf
     })
   })
   .catch(err => {
