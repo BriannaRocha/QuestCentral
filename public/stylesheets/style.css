@@ -30,19 +30,17 @@ nav {
   align-items: right;
   justify-content: right;
   padding: 15px;
-  min-height: 45px;
+  max-height: 60px;
   font-family: 'Open Sans', sans-serif;
 }
 
-nav > i {
-  width: 20px;
+#nav-logo {
   object-fit: contain;
   margin-right: auto;
   align-items: center;
   justify-content: center;
-  color: #e0d057;
-  font-weight: bold;
-  text-shadow: 1px 1px 0px rgb(0, 0, 0);
+  max-height: 300px;
+  max-width: 150px;
 }
 
 nav > a {
@@ -161,7 +159,7 @@ button:hover {
 }
 
 .yellow-highlight {
-  color: #dfcf57;
+  color: #ceb70e;
 }
 
 table {
