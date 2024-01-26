@@ -24,10 +24,16 @@ nav {
   background-color: #f6f6f6;
   color: #1a1a1a;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: right;
+  justify-content: right;
   padding: 10px;
   min-height: 60px;
+}
+
+nav > i {
+  width: 34px;
+  object-fit: contain;
+  margin-right: auto;
 }
 
 main {
@@ -82,10 +88,8 @@ nav > a {
   justify-content: center;
 }
 
-.btn, button {
+.btn {
   margin: 16px 0;
-  padding: 8px;
-  border-radius: 8px;
 }
 
 .link {
@@ -100,22 +104,4 @@ nav > a {
 
 .inline {
   display: inline;
-}
-
-.comment-photo {
-  width: 20px;
-}
-
-.edit-btn {
-  font-size: 16px;
-  background-color: #1a1a1a;
-  border: none;
-  cursor: pointer;
-  padding: none;
-  margin: 0px;
-}
-
-li {
-  display: flex;
-  align-items: center;
 }

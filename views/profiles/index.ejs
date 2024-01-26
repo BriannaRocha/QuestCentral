@@ -3,21 +3,56 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="card-container">
-    <% profiles.forEach(profile => { %>
-      <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
-        <div class="card">
-          <img 
-            src="<%= profile.avatar %>" 
-            alt="<%= profile.name %>'s avatar"
-          >
-          <div class="card-body">
-            <h1 class="card-title"><%= profile.name %></h1>
-          </div>
-        </div>
-      </a>
-    <% }) %>
+  <div>
+    <img 
+      class="profile-avatar"
+      src="<%= profile.avatar %>" 
+      alt="<%= profile.name %>'s avatar"
+    >
   </div>
+  <h1>Hey, <%= isSelf ? "you" : profile.name %>!</h1>
+  <% if (isSelf) { %>
+    <h2>Add a Gamertag!</h2>
+    <form action="/profiles/gamertags" method="POST">
+      <label>
+        Name: 
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label for="platform-select">Platform:</label>
+      <select name="platform" id="platform-select">
+        <option value="Apple" selected>Apple</option>
+        <option value="Epic Games" selected>Epic Games</option>
+        <option value="Google" selected>Google</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="Playstation">Playstation</option>
+        <option value="Steam" selected>Steam</option>
+        <option value="Ubisoft">Ubisoft</option>
+        <option value="Xbox">Xbox</option>
+      </select>
+      <button type="submit"> Add </button>
+      </form>
+    <br />
+      <% } %>
+      <% if (profile.gamertags.length) { %>
+        <table id="gamertag-list">
+        <% profile.gamertags.forEach(gamertag => { %>
+        <tr>
+          <td><%= gamertag.platform %>: <%= gamertag.name %></td>
+          <% if (isSelf) { %>
+          <td>
+            <form 
+              action="/profiles/gamertags/<%= gamertag._id %>?_method=DELETE" 
+              method="POST"
+            >
+              <button type="submit">X</button>
+            </form>
+          </td>  
+          <% } %>
+        </tr>
+        <% }) %>
+          </tbody>
+        </table>
+      <% } %>
 </main>
 
 <%- include('../partials/footer') %>

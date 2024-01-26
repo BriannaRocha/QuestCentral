@@ -1,24 +1,10 @@
 import { Profile } from "../models/profile.js"
 
 function index(req, res) {
-  Profile.find({})
-  .then(profiles => {
-    res.render('profiles/index', {
-      profiles,
-      title: 'Profiles'
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/')
-  })
-}
-
-function show(req, res) {
-  Profile.findById(req.params.profileId)
-  .then(profile => {
+  Profile.findById(req.user.profile._id)
+    .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
-    res.render('profiles/show', {
+    res.render('profiles/index', {
       title: `${profile.name}'s profile`,
       profile,
       isSelf,
@@ -26,7 +12,7 @@ function show(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/profiles')
+    res.redirect('/')
   })
 }
 
@@ -36,16 +22,16 @@ function createGamertag(req, res) {
     profile.gamertags.push(req.body)
     profile.save()
     .then(() => {
-      res.redirect(`/profiles/${profile._id}`)
+      res.redirect('/profiles')
     })
     .catch(err => {
       console.log(err)
-      res.redirect(`/profiles/${profile._id}`)
+      res.redirect('/profiles')
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect(`/profiles/${profile._id}`)
+    res.redirect('/profiles')
   })
 }
 
@@ -55,22 +41,21 @@ function deleteGamertag(req, res) {
     profile.gamertags.remove({_id: req.params.gamertagId})
     profile.save()
     .then(() => {
-      res.redirect(`/profiles/${req.user.profile._id}`)
+      res.redirect('/profiles')
     })
     .catch(err => {
       console.log(err)
-      res.redirect(`/profiles/${req.user.profile._id}`)
+      res.redirect('/profiles')
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect(`/profiles/${req.user.profile._id}`)
+    res.redirect('/profiles')
   })
 }
 
 export {
   index,
-  show,
   createGamertag,
   deleteGamertag
 }
