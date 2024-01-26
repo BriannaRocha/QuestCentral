@@ -12,7 +12,8 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
+  background-color: #302e32;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
   color: #f6f6f6;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
@@ -21,13 +22,15 @@ body {
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
+  background-color: #1c1b1b;
+  color: #ffffff;
   display: flex;
+  text-transform: uppercase;
   align-items: right;
   justify-content: right;
   padding: 10px;
   min-height: 60px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav > i {
@@ -72,7 +75,7 @@ section {
 }
 
 a {
-  color: #00B7FF;
+  color: #15b0e3;
 }
 
 pre {
@@ -80,9 +83,9 @@ pre {
 }
 
 nav > a {
-  margin: 8px 24px;
+  margin: 5px 10px;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
