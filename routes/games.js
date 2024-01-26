@@ -23,7 +23,7 @@ router.post('/:gameId/notes', isLoggedIn, gamesCtrl.addNote)
 // POST localhost:3000/games/:gameId/notes
 router.get('/:gameId/notes/:noteId/edit', isLoggedIn, gamesCtrl.editNote)
 // PUT localhost:3000/games/:gameId/notes/:noteId
-router.put('/:gameId/ntoes/:noteId', isLoggedIn, gamesCtrl.updateNote)
+router.put('/:gameId/notes/:noteId', isLoggedIn, gamesCtrl.updateNote)
 // DELETE localhost:3000/games/:gameId/notes/:noteId
 router.delete('/:gameId/notes/:noteId', isLoggedIn, gamesCtrl.deleteNote)
 

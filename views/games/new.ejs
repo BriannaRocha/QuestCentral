@@ -4,24 +4,30 @@
 <main>
   <% if (user) { %>
     <div class="content-box">
-    <h2>Add a Video Game!</h2>
+    <h2>Add a Video Game! 👾</h2>
       <form id="new-form" action="/games" method="POST">
         <label>
           Game Title: 
           <input type="text" name="name" autocomplete="off">
         </label>
+        <br>
+        <br>
         <label for="status-select">Status:</label>
         <select name="status" id="status-select">
           <option value="Interested">Interested</option>
           <option value="Currently Playing" selected>Currently Playing</option>
           <option value="Completed">Completed</option>
         </select>
+        <br>
+        <br>
         <label for="completedDate-input">Completed Date:</label>
         <input 
           type="datetime-local"
           name="completedDate" 
           id="completedDate-input"
         >
+        <br>
+        <br>
         <label for="platform-select">Platform:</label>
         <select name="platform" id="platform-select">
           <option value="Mobile">Mobile</option>
@@ -31,6 +37,8 @@
           <option value="Xbox">Xbox</option>
           <option value="Other">Other</option>
         </select>
+        <br>
+        <br>
         <button type="submit">Save Game</button>
       </form>
     </div>

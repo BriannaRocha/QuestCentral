@@ -197,6 +197,15 @@ table td {
   background-color: white;
 }
 
+.card {
+  background-color: rgba(114, 113, 113, 0.282);
+  border: 7px solid #15b0e3;
+  box-shadow: #000000 0px 5px 15px;
+  border-radius: 20px;
+  color: #dcdcdc;
+  padding: 15px;
+}
+
 footer {
   font-size: 30px;
   display: flex;

@@ -6,16 +6,16 @@
   <% if (user) { %>
     <p> Add a Game Review on your Game Details page! </p>
   <% } %>
-  <div class="card-container">
-    <% reviews.forEach((review) => { %>
+  <% reviews.forEach((review) => { %>
+    <div class="card">
       <a class="text-decoration-none">
-        <div class="card">
+        <div>
           <img 
             src="<%= review.owner.avatar %>" 
             alt="<%= review.owner.name %>'s avatar"
           >
-          <div class="card-body">
-            <h1 class="card-title"><%= review.owner.name %></h1>
+          <div>
+            <h1><%= review.owner.name %></h1>
           </div>
         </div>
       </a>
@@ -47,8 +47,9 @@
           <button type="submit">Delete Review</button>
         </form>
       <% } %>
-    <% }) %>
-  </div>
+    </div>
+  <% }) %>
+  
 </main>
 
 <%- include('../partials/footer') %>

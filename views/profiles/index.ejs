@@ -14,11 +14,15 @@
   <div class="content-box">
   <% if (isSelf) { %>
     <h2>Add a gamertag!</h2>
+    &nbsp;
     <form action="/profiles/gamertags" method="POST">
       <label>
         Name: 
         <input type="text" name="name" autocomplete="off">
       </label>
+      &nbsp;
+      &nbsp;
+      &nbsp;
       <label for="platform-select">Platform:</label>
       <select name="platform" id="platform-select">
         <option value="Apple">Apple</option>
@@ -30,6 +34,9 @@
         <option value="Ubisoft">Ubisoft</option>
         <option value="Xbox">Xbox</option>
       </select>
+      &nbsp;
+      &nbsp;
+      &nbsp;
       <button type="submit"> Add </button>
       </form>
     <br />
@@ -38,7 +45,7 @@
       <table id="gamertag-list">
       <% profile.gamertags.forEach(gamertag => { %>
       <tr>
-        <td><%= gamertag.platform %>: <%= gamertag.name %></td>
+        <td><%= gamertag.platform %>: &nbsp; <%= gamertag.name %></td>
         <% if (isSelf) { %>
         <td>
           <form 

@@ -1,53 +1,52 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
-	<p>From the Elite Gamer, <%= game.owner.name %>!</p>
-  <h1><%= game.name %> 🎮</h1>
-  <div>Game: </div>
-  <div><%= game.name %></div>
-  <div>Status: </div>
-  <div><%= game.status %></div>
-  <div>Platform: </div>
-  <div><%= game.platform %></div>
-  <% if (game.owner.equals(user?.profile._id)) { %>
-    <a href="/games/<%= game._id %>/edit">
-      <button class="btn">Edit 🎮🚧</button>
-    </a>
-    <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Delete 🎮💀</button>
-    </form>
-  <% } %>
-  <% if (isSelf) { %>
-    <a href="/reviews/new/<%= game._id %>">
-      <button class="btn add-btn">Add Review</button>
-    </a>
-  <% } %>  
-  <h2>Notes:</h2>
-  <ul>
-    <% game.notes?.forEach(note => { %>
-      <li>
-        <%= note.content%> 
-        &nbsp;at 
-        <%= note.createdAt.toLocaleString() %>
-        <% if (note.author.equals(user?.profile._id)) { %>
-          <a href="/games/<%= game._id %>/notes/<%= note._id %>/edit">
-            <button class="btn edit-btn">Edit 📝</button>
-          </a>
-          <form action="/games/<%= game._id %>/notes/<%= note._id %>?_method=DELETE" method="POST">
-            <button class="btn delete-btn">Delete 🗑️</button>
-          </form>
-        <% } %> 
-      </li>
-    <% }) %>
-  </ul>
-  <% if (game.owner.equals(user?.profile._id)) { %>
-    <h3>Add a Note</h3>
-    <form action="/games/<%= game._id %>/notes" method="POST">
-      <textarea name="content" rows="3"></textarea><br>
-      <button type="submit">Add Note</button>
-    </form>
-  <% } %>
-</section>
+<main>
+	<h2>From the Elite Gamer, <%= game.owner.name %>! 😏</h2>
+  <div class="content-box">
+    <h1><%= game.name %> 🎮</h1>
+    <div>Status: <%= game.status %></div>
+    <br>
+    <div>Platform: <%= game.platform %></div>
+    <% if (game.owner.equals(user?.profile._id)) { %>
+      <a href="/games/<%= game._id %>/edit">
+        <button class="btn">Edit 🎮🚧</button>
+      </a>
+      <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete 🎮💀</button>
+      </form>
+    <% } %>
+    <% if (isSelf) { %>
+      <a href="/reviews/new/<%= game._id %>">
+        <button class="btn add-btn">Add Review</button>
+      </a>
+    <% } %>  
+    <h3>Notes:</h3>
+    <% if (game.owner.equals(user?.profile._id)) { %>
+      <form action="/games/<%= game._id %>/notes" method="POST">
+        <textarea name="content" rows="3"></textarea><br>
+        <br>
+        <button type="submit">Add Note</button>
+      </form>
+    <% } %>
+    <ul>
+      <% game.notes?.forEach(note => { %>
+        <li>
+          <%= note.content%> 
+          &nbsp;at 
+          <%= note.createdAt.toLocaleString() %>
+          <% if (note.author.equals(user?.profile._id)) { %>
+            <a href="/games/<%= game._id %>/notes/<%= note._id %>/edit">
+              <button class="btn edit-btn">Edit 📝</button>
+            </a>
+            <form action="/games/<%= game._id %>/notes/<%= note._id %>?_method=DELETE" method="POST">
+              <button class="btn delete-btn">X</button>
+            </form>
+          <% } %> 
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</main>
 
 <%- include('../partials/footer') %>

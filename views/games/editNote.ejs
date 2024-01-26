@@ -2,23 +2,26 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Edit Notes:</h1>
-  <form 
-    action="/games/<%= game._id %>/notes/<%= note._id %>?_method=PUT"
-    method="POST"
-  >
-    <label>
-      Game Notes: 
+  <div class="content-box">
+    <h2>Edit Note 📝</h2>
+    <form 
+      action="/games/<%= game._id %>/notes/<%= note._id %>?_method=PUT"
+      method="POST"
+    >
+    &nbsp;
       <textarea
         cols="30"
         rows="5" 
         type="text"
         name="content" 
         autocomplete="off"
-      ><%= note.content %></textarea>
-    </label><br>
-    <button type="submit">Update Note</button>
-  </form>
+      ><%= note.content %>
+      </textarea>
+      <br>
+      <br>
+      <button type="submit">Update Note</button>
+    </form>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

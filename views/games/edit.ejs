@@ -2,46 +2,56 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Edit the Game! </h1>
-  <form action="/games/<%= game._id %>?_method=PUT" method="POST">
-    <label>
-      Game Title: 
+  <div class="content-box">
+    <h1>Edit the Game! 📝</h1>
+    <form action="/games/<%= game._id %>?_method=PUT" method="POST">
+      <label>
+        Game Title: 
+        <input 
+          type="text"
+          name="name" 
+          value="<%= game.name %>" 
+          autocomplete="off"
+        >
+      </label>
+      <br>
+      <br>
+      <label for="status-select">Status:</label>
+      <select name="status" id="status-select">
+        <option value="<%= game.status %>">
+          <%= game.status %>
+        </option>
+        <option value="Interested">Interested</option>
+        <option value="Currently Playing">Currently Playing</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <br>
+      <br>
+      <label for="completedDate-input">Completed Date:</label>
       <input 
-        type="text"
-        name="name" 
-        value="<%= game.name %>" 
-        autocomplete="off"
+        type="datetime-local"
+        name="completedDate" 
+        id="completedDate-input"
       >
-    </label>
-    <label for="status-select">Status:</label>
-    <select name="status" id="status-select">
-      <option value="<%= game.status %>">
-        <%= game.status %>
-      </option>
-      <option value="Interested">Interested</option>
-      <option value="Currently Playing">Currently Playing</option>
-      <option value="Completed">Completed</option>
-    </select>
-    <label for="completedDate-input">Completed Date:</label>
-    <input 
-      type="datetime-local"
-      name="completedDate" 
-      id="completedDate-input"
-    >
-    <label for="platform-select">Platform:</label>
-    <select name="platform" id="platform-select">
-      <option value="<%= game.platform %>">
-        <%= game.platform %>
-      </option>
-      <option value="Mobile">Mobile</option>
-      <option value="Nintendo">Nintendo</option>
-      <option value="PC">PC</option>
-      <option value="Playstation">Playstation</option>
-      <option value="Xbox">Xbox</option>
-      <option value="Other">Other</option>
-    </select>
-    <button type="submit">Save</button>
-  </form>
+      <br>
+      <br>
+      <label for="platform-select">Platform:</label>
+      <select name="platform" id="platform-select">
+        <option value="<%= game.platform %>">
+          <%= game.platform %>
+        </option>
+        <option value="Mobile">Mobile</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="PC">PC</option>
+        <option value="Playstation">Playstation</option>
+        <option value="Xbox">Xbox</option>
+        <option value="Other">Other</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit">Save</button>
+    </form>
+  </div>  
 </main>
 
 <%- include('../partials/footer') %>
