@@ -1,6 +1,6 @@
-# <p align="center">**Quest Central!**</p>
+# <p align="center">**Quest Central**</p>
 
-![Alt text](assets/images/home.png)
+![Alt text](/public/assets/images/home.png)
 
 Hey, Gamer! Welcome to Quest Central, a video game tracker, where one can sign in using a Google authorized account to create a Quest Central profile. With this Quest Central profile, a logged-in user can create a game list of games they are either interested in playing, currently playing, or have already completed. Once you have a game added to your list, you can then edit, delete, add a review, or even add notes to the game. A logged-in user can also keep track of their gamertags on their profile page! If you do not want to make a profile, no worries! You can still view the reviews Quest Central profile users have left! Enjoy, and stay tuned for future updates and features! 👾
 
