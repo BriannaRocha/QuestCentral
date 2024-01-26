@@ -45,7 +45,8 @@
       <table id="gamertag-list">
       <% profile.gamertags.forEach(gamertag => { %>
       <tr>
-        <td><%= gamertag.platform %>: &nbsp; <%= gamertag.name %></td>
+        <td><%= gamertag.platform %>: </td>
+        <td><%= gamertag.name %></td>
         <% if (isSelf) { %>
         <td>
           <form 

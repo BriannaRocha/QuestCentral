@@ -27,7 +27,7 @@ Hey, Gamer! 👾 Welcome to Quest Central, a video game tracker, where one can s
 
 - [x] Font Design
 - [x] Gamertags to Profiles
-- [x] Edit/Delete for Gamertags
+- [x] Delete Gamertags
 - [x] Notes Feature to Owned Game
 - [x] Edit/Delete for Notes
 - [ ] Design a logo for Quest Central
