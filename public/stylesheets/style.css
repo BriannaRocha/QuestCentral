@@ -66,7 +66,7 @@ main {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 37px;
   font-weight: bold;
   text-shadow: 2px 2px 0px rgb(50, 50, 50);
 }
@@ -117,6 +117,11 @@ pre {
   gap: 30px;
 }
 
+button:hover {
+  color: #b2b2b2;
+  background-color: #3f3f3fb5;
+}
+
 .link {
   padding: 12px 0;
   font-size: 18px;
@@ -131,7 +136,7 @@ pre {
   display: inline;
 }
 
-#home-intro {
+.content-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,7 +151,7 @@ pre {
   text-align: center;
 }
 
-#app-name {
+.yellow-highlight {
   color: #dfcf57;
 }
 

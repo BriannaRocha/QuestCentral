@@ -10,9 +10,10 @@
       alt="<%= profile.name %>'s avatar"
     >
   </div>
-  <h1>Hey, <%= isSelf ? "gamer" : profile.name %>!</h1>  
+  <h1>THE best gamer is... <%= profile.name %>!</h1>  
+  <div class="content-box">
   <% if (isSelf) { %>
-    <h2>Add a Gamertag!</h2>
+    <h2>Add a gamertag!</h2>
     <form action="/profiles/gamertags" method="POST">
       <label>
         Name: 
@@ -32,27 +33,28 @@
       <button type="submit"> Add </button>
       </form>
     <br />
-      <% } %>
-      <% if (profile.gamertags.length) { %>
-        <table id="gamertag-list">
-        <% profile.gamertags.forEach(gamertag => { %>
-        <tr>
-          <td><%= gamertag.platform %>: <%= gamertag.name %></td>
-          <% if (isSelf) { %>
-          <td>
-            <form 
-              action="/profiles/gamertags/<%= gamertag._id %>?_method=DELETE" 
-              method="POST"
-            >
-              <button type="submit">X</button>
-            </form>
-          </td>  
-          <% } %>
-        </tr>
-        <% }) %>
-          </tbody>
-        </table>
-      <% } %>
+    <% } %>
+    <% if (profile.gamertags.length) { %>
+      <table id="gamertag-list">
+      <% profile.gamertags.forEach(gamertag => { %>
+      <tr>
+        <td><%= gamertag.platform %>: <%= gamertag.name %></td>
+        <% if (isSelf) { %>
+        <td>
+          <form 
+            action="/profiles/gamertags/<%= gamertag._id %>?_method=DELETE" 
+            method="POST"
+          >
+            <button class="btn" type="submit">X</button>
+          </form>
+        </td>  
+        <% } %>
+      </tr>
+      <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
