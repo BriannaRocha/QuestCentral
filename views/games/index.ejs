@@ -2,39 +2,41 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>The Ultimate Gamer Series! 🎮</h1>
-  <a href="/games/new">
-    Add Video Game
-  </a>
-  <% if (games.length) { %>
-    <table id="list">
-      <thead>
-        <tr>
-          <th>Game:</th>
-          <th>Status:</th>
-          <th>Platform:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% games.forEach((game) => { %>
-        <tr>
-          <td><%= game.name %></td>
-          <td><%= game.status %></td>
-          <td><%= game.platform %></td>
-          <td><a href="/games/<%= game._id %>">Game Details</a></td>
-          <td>
-            <form 
-              action="/games/<%= game._id %>?_method=DELETE"
-              method="POST"
-            >
-              <button type="submit">X</button>
-            </form>
-          </td>
-        </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  <% } %>
+  <div class="content-box">
+    <h1>The Ultimate Gamer Series! 🎮</h1>
+    <a href="/games/new">
+      Add Video Game
+    </a>
+    <% if (games.length) { %>
+      <table id="list">
+        <thead>
+          <tr>
+            <th>Game:</th>
+            <th>Status:</th>
+            <th>Platform:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% games.forEach((game) => { %>
+          <tr>
+            <td><%= game.name %></td>
+            <td><%= game.status %></td>
+            <td><%= game.platform %></td>
+            <td><a href="/games/<%= game._id %>">Details</a></td>
+            <td>
+              <form 
+                action="/games/<%= game._id %>?_method=DELETE"
+                method="POST"
+              >
+                <button type="submit">X</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

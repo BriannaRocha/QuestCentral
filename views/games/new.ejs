@@ -3,35 +3,37 @@
 
 <main>
   <% if (user) { %>
+    <div class="content-box">
     <h2>Add a Video Game!</h2>
-    <form id="new-form" action="/games" method="POST">
-      <label>
-        Game Title: 
-        <input type="text" name="name" autocomplete="off">
-      </label>
-      <label for="status-select">Status:</label>
-      <select name="status" id="status-select">
-        <option value="Interested">Interested</option>
-        <option value="Currently Playing" selected>Currently Playing</option>
-        <option value="Completed">Completed</option>
-      </select>
-      <label for="completedDate-input">Completed Date:</label>
-      <input 
-        type="datetime-local"
-        name="completedDate" 
-        id="completedDate-input"
-      >
-      <label for="platform-select">Platform:</label>
-      <select name="platform" id="platform-select">
-        <option value="Mobile">Mobile</option>
-        <option value="Nintendo">Nintendo</option>
-        <option value="PC" selected>PC</option>
-        <option value="Playstation">Playstation</option>
-        <option value="Xbox">Xbox</option>
-        <option value="Other">Other</option>
-      </select>
-      <button type="submit">Save Game</button>
-    </form>
+      <form id="new-form" action="/games" method="POST">
+        <label>
+          Game Title: 
+          <input type="text" name="name" autocomplete="off">
+        </label>
+        <label for="status-select">Status:</label>
+        <select name="status" id="status-select">
+          <option value="Interested">Interested</option>
+          <option value="Currently Playing" selected>Currently Playing</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <label for="completedDate-input">Completed Date:</label>
+        <input 
+          type="datetime-local"
+          name="completedDate" 
+          id="completedDate-input"
+        >
+        <label for="platform-select">Platform:</label>
+        <select name="platform" id="platform-select">
+          <option value="Mobile">Mobile</option>
+          <option value="Nintendo">Nintendo</option>
+          <option value="PC" selected>PC</option>
+          <option value="Playstation">Playstation</option>
+          <option value="Xbox">Xbox</option>
+          <option value="Other">Other</option>
+        </select>
+        <button type="submit">Save Game</button>
+      </form>
+    </div>
   <% } %>
 </main>
 
