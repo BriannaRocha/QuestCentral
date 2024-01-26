@@ -14,11 +14,14 @@ html {
 body {
   background-color: #302e32;
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-  color: #f6f6f6;
+  color: #dcdcdc;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 nav {
@@ -41,8 +44,8 @@ nav > i {
 
 main {
   display: flex;
+  flex: 1;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 
@@ -83,7 +86,7 @@ pre {
 }
 
 nav > a {
-  margin: 10px 12px;
+  margin: 10px 10px;
   text-decoration: none;
   font-size: 20px;
   display: flex;
@@ -107,4 +110,13 @@ nav > a {
 
 .inline {
   display: inline;
+}
+
+footer {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: #302e32;
 }
