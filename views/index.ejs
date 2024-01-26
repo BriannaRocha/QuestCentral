@@ -22,6 +22,23 @@
       <p>
         Log in with a Google account to access a profile where you can keep track of games you are either interested in, games you currently are playing, and games you have completed. As a profile user, you can create reviews for games in your list by going to the games deatil page! With a Quest Central profile, you can also keep track of your gamertags by platform. 
       </p>
+      <div 
+        id="g_id_onload"
+        data-client_id="<%= googleClientID %>"
+        data-login_uri="/auth/google"
+        data-auto_prompt="false"
+      ></div>
+      <br>
+      <div 
+        class="g_id_signin"
+        data-type="standard"
+        data-size="large"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-shape="rectangular"
+        data-logo_alignment="left"
+      ></div>
+      <br>
       <p>
         If you do not have a profile, no worries! Feel free to check out the reviews left by Quest Central users!
       </p>
@@ -29,12 +46,6 @@
         Stay tuned for updates and new features!
       </p>
     </div>
-    
-    <!-- <h3>
-      Hey Gamer, 
-      <br />
-      Please login to Google to access a Quest Central profile!
-    </h3>  -->
   <% } %>
 </main>
 
