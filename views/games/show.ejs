@@ -7,7 +7,9 @@
     <h1><%= game.name %> 🎮</h1>
     <h3>Status: <%= game.status %></h3>
     <h3>Platform: <%= game.platform %></h3>
-    <h3>Completed Date: <%= game.completedDate %></h3>
+    <% if (game.completedDate) { %>
+      <h3>Completed Date: <%= game.completedDate?.toLocaleDateString() %></h3>
+    <% } %>
     <% if (game.owner.equals(user?.profile._id)) { %>
       <a href="/games/<%= game._id %>/edit">
         <button class="btn">Edit 🎮🚧</button>

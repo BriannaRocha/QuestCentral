@@ -32,7 +32,7 @@
         type="date"
         name="completedDate" 
         id="completedDate-input"
-        value="<%= game.completedDate %>"
+        value="<%= game.completedDate?.toISOString().split('T')[0]; %>"
       >
       <br>
       <br>
