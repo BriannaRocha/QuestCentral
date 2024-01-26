@@ -28,7 +28,27 @@
         <option value="Ubisoft">Ubisoft</option>
         <option value="Xbox">Xbox</option>
       </select>
-  <% } %>
+      <% } %>
+      <% if (profile.gamertags.length) { %>
+        <% profile.gamertags.forEach(cat => { %>
+          <h3>
+            <%= gamertag.platform %> <%= gamertag.name %>
+          </h3>
+          <% if (isSelf) { %>
+            <form 
+                action="/profiles/gamertags/<%= gamertag._id %>?_method=DELETE" 
+                method="POST"
+                style="display: inline-block;"
+              >
+                <button type="submit">😸 Free <%= cat.name %></button>
+              </form>
+          <% } %>
+        <% }) %>
+      <% } else { %>
+        <h2>
+          <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any gamertags added.
+        </h2> 
+      <% } %>
 </main>
 
 <%- include('../partials/footer') %>
