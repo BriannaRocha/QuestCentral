@@ -15,9 +15,7 @@ body {
   background-color: #302e32;
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
   color: #dcdcdc;
-  /* Use a system font, if none are available use any found sans-sarif font */
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
-    'Helvetica Neue', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -31,15 +29,33 @@ nav {
   text-transform: uppercase;
   align-items: right;
   justify-content: right;
-  padding: 10px;
-  min-height: 60px;
+  padding: 15px;
+  min-height: 45px;
   font-family: 'Open Sans', sans-serif;
 }
 
 nav > i {
-  width: 34px;
+  width: 20px;
   object-fit: contain;
   margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  color: #e0d057;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgb(0, 0, 0);
+}
+
+nav > a {
+  margin: 10px 10px;
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav > a:hover {
+  color: #e0d057;
 }
 
 main {
@@ -51,10 +67,15 @@ main {
 
 h1 {
   font-size: 36px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgb(50, 50, 50);
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 37px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgb(50, 50, 50);
+
 }
 
 h3 {
@@ -85,17 +106,15 @@ pre {
   font-size: 14px;
 }
 
-nav > a {
-  margin: 10px 10px;
-  text-decoration: none;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .btn {
   margin: 16px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  gap: 30px;
 }
 
 .link {
@@ -110,6 +129,25 @@ nav > a {
 
 .inline {
   display: inline;
+}
+
+#home-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin: 70px;
+  max-width: 50vw;
+  background-color: rgba(0, 0, 0, 0.447);
+  border: 10px solid #15b0e3;
+  border-radius: 15px;
+  padding: 35px 65px;
+  text-align: center;
+}
+
+#app-name {
+  color: #dfcf57;
 }
 
 footer {
