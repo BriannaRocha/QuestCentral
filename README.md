@@ -9,24 +9,31 @@ Hey, Gamer! Welcome to Quest Central, a video game tracker, where one can sign i
 
 ## [Planning Materials](https://trello.com/b/tdCDrEUw/quest-central) 💭
 ## Technologies used 💻
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)   ![Google Drive](https://img.shields.io/badge/Google%20Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)  
 
-## [Credits](https://docs.google.com/document/d/1DInBiYHscKJ5IsrXjgRYUO5xqDJmOcW718aeQhDqxVE/edit?usp=sharing) 👏
+- Mongoose
+- Google OAuth
+- Node.js
+- EJS
 
+## Attributions 👏
 ![MDN Web Docs](https://img.shields.io/badge/MDN_Web_Docs-black?style=for-the-badge&logo=mdnwebdocs&logoColor=white) ![FreeCodeCamp](https://img.shields.io/badge/Freecodecamp-%23123.svg?&style=for-the-badge&logo=freecodecamp&logoColor=green) ![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+
+- Fonts used in Quest Central are sourced from fonts.google.com
+- Quest Central uses icons from fontawesome.com
+- Background used is sourced from heropatterns.com
 
 ## Ice Box 🧊
 
 - [x] Font Design
-- [ ] Highlight Cards flipped
-- [x] Card Animations
-- [x] Timer
-- [x] Sound
-- [x] Confetti
-- [x] Audio Button
-- [ ] Difficulty Modes
-- [ ] Different Themes for each difficulty; e.g. Universal Studios Park themes
-- [ ] Change Confetti to Themed emotes
-- [ ] Navigation Bar
-- [ ] Dark Mode
-- [ ] Mobile Responsive
+- [x] Gamertags to Profiles
+- [x] Edit/Delete to Gamertags
+- [x] Notes Feature to Owned Game
+- [ ] API (Game Search)
+- [ ] API (Select Campaign or Multiplayer)
+- [ ] Feature to mark if game is currently meta or dead
+- [ ] API (View Game Challenges Progression)
+- [ ] API (Link gamertags to platform)
+- [ ] Ability to add user profiles as friends 
+- [ ] Ability to view other users profiles if logged in
+- [X] Mobile Responsive
