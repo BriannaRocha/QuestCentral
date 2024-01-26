@@ -204,6 +204,8 @@ table td {
   border-radius: 20px;
   color: #dcdcdc;
   padding: 15px;
+  margin: 20px;
+  width: 400px;
 }
 
 footer {
