@@ -27,8 +27,9 @@ Hey, Gamer! Welcome to Quest Central, a video game tracker, where one can sign i
 
 - [x] Font Design
 - [x] Gamertags to Profiles
-- [x] Edit/Delete to Gamertags
+- [x] Edit/Delete for Gamertags
 - [x] Notes Feature to Owned Game
+- [x] Edit/Delete for Notes
 - [ ] Design a logo for Quest Central
 - [ ] API (Game Search + Adding Game image to list)
 - [ ] API (Select Campaign or Multiplayer)
