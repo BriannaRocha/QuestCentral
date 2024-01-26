@@ -24,7 +24,7 @@ function index(req, res) {
   .then(games => {
     res.render('games/index', {
       games,
-      title: "Game"
+      title: "THE Games List"
     })
   })
   .catch(err => {

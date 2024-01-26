@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
+<main>
   <h1>Edit Notes:</h1>
   <form 
     action="/games/<%= game._id %>/notes/<%= note._id %>?_method=PUT"
@@ -19,6 +19,6 @@
     </label><br>
     <button type="submit">Update Note</button>
   </form>
-</section>
+</main>
 
 <%- include('../partials/footer') %>

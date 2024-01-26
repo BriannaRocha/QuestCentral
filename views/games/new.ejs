@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<section>
+<main>
   <% if (user) { %>
     <h2>Add a Video Game!</h2>
     <form id="new-form" action="/games" method="POST">
@@ -33,6 +33,6 @@
       <button type="submit">Save Game</button>
     </form>
   <% } %>
-</section>
+</main>
 
 <%- include('../partials/footer') %>
