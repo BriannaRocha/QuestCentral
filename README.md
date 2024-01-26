@@ -18,10 +18,10 @@ Hey, Gamer! 👾 Welcome to Quest Central, a video game tracker, where one can s
 ## Attributions 👏
 ![MDN Web Docs](https://img.shields.io/badge/MDN_Web_Docs-black?style=for-the-badge&logo=mdnwebdocs&logoColor=white) ![FreeCodeCamp](https://img.shields.io/badge/Freecodecamp-%23123.svg?&style=for-the-badge&logo=freecodecamp&logoColor=green) ![Google](https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
 
-- ERD created using Whimsical
-- Fonts used in Quest Central are sourced from fonts.google.com
-- Quest Central uses icons from fontawesome.com
-- Background used is sourced from heropatterns.com
+- ERD created using [Whimsical](https://whimsical.com/)
+- Fonts used in Quest Central are sourced from [Google Fonts](https://fonts.google.com/)
+- Quest Central uses icons from [Font Awesome](https://fontawesome.com/)
+- Background used is sourced from [Hero Patterns](https://heropatterns.com/)
 
 ## Ice Box 🧊
 
