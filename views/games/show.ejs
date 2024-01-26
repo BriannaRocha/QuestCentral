@@ -19,7 +19,7 @@
     </form>
   <% } %>
   <% if (isSelf) { %>
-    <a href="/reviews/new">
+    <a href="/reviews/new/<%= game._id %>">
       <button class="btn add-btn">Add Review</button>
     </a>
   <% } %>  

@@ -4,25 +4,23 @@
 <main>
   <h1>Video Game Reviews! 🎮</h1>
   <% if (user) { %>
-    <a href="/reviews/new">
-      Add a Review
-    </a>
+    <p> Add a Game Review on your Game Details page! </p>
   <% } %>
   <div class="card-container">
     <% reviews.forEach((review) => { %>
-      <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
+      <a class="text-decoration-none">
         <div class="card">
           <img 
-            src="<%= profile.avatar %>" 
-            alt="<%= profile.name %>'s avatar"
+            src="<%= review.owner.avatar %>" 
+            alt="<%= review.owner.name %>'s avatar"
           >
           <div class="card-body">
-            <h1 class="card-title"><%= profile.name %></h1>
+            <h1 class="card-title"><%= review.owner.name %></h1>
           </div>
         </div>
       </a>
       <div>
-        <%= review.recommend ? 'Recommended' : 'Not Recommended' %>
+        <%= review.recommended ? 'Recommended' : 'Not Recommended' %>
       </div>
       <div>
         <p> POSTED: <%= review.createdAt.toDateString() %> </p>
@@ -33,15 +31,15 @@
       <div>
         <p> Rating: <%= review.rating %> /10 </p>
       </div>
-      <% if (review.game.owner.equals(user?.profile._id)) { %>
+      <% if (review.owner.equals(user?.profile._id)) { %>
         <a href="/reviews/<%= review._id %>/edit">
           <button class="btn">Edit this Review</button>
         </a>
         <form 
-          action="/review/<%= review._id %>?_method=DELETE"
+          action="/reviews/<%= review._id %>?_method=DELETE"
           method="POST"
         >
-          <button type="submit">X</button>
+          <button type="submit">Delete Review</button>
         </form>
       <% } %>
     <% }) %>

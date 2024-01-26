@@ -2,12 +2,14 @@ import { Review } from "../models/review.js"
 import { Game } from "../models/game.js"
 
 function newReview(req, res) {
-  Game.find({owner: req.user.profile._id})
+  Game.findById(req.params.gameId)
   .populate('owner')
-  .then(games => {
+  .then(game => {
+    const isSelf = game.owner._id.equals(req.user.profile._id)
     res.render('reviews/new', {
-      games,
-      title: "Add Game Review"
+      game,
+      title: "Add Game Review",
+      isSelf
     })
   })
   .catch(err => {
@@ -18,6 +20,8 @@ function newReview(req, res) {
 
 function index(req, res) {
   Review.find({})
+  .populate('owner')
+  .populate('game')
   .then(reviews => {
     res.render('reviews/index', {
       reviews,
@@ -45,10 +49,14 @@ function create(req, res) {
 
 function edit(req, res) {
   Review.findById(req.params.reviewId)
+  .populate('owner')
+  .populate('game')
   .then(review => {
+    const isSelf = review.owner._id.equals(req.user.profile._id)
     res.render('reviews/edit', {
       review,
-      title: 'Edit Review'
+      title: 'Edit Review',
+      isSelf
     })
   })
   .catch(err => {

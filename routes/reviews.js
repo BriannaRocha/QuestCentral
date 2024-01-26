@@ -4,8 +4,8 @@ import { isLoggedIn } from "../middleware/middleware.js";
 
 const router = Router()
 
-// GET http://localhost:3000/reviews/new
-router.get('/new', reviewsCtrl.new)
+// GET http://localhost:3000/reviews/new/:gameId
+router.get('/new/:gameId', reviewsCtrl.new)
 // POST localhost:3000/reviews
 router.post('/', isLoggedIn, reviewsCtrl.create)
 // GET localhost:3000/reviews
