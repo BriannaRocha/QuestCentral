@@ -2,14 +2,22 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Hey, <%= user ? user.profile.name : "gamer" %>!</h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
+  <% if (user) { %>
+    <h1>Hey, <%= user ? user.profile.name : "gamer" %>!</h1>
+    <% if (user?.profile.avatar) { %>
+      <div>
+        <img
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
+      </div>
+    <% } %>
+  <% } else { %>  
+    <h2>
+      Hey Gamer, 
+      <br />
+      Please login to Google to access a Quest Central account!
+    </h2> 
   <% } %>
 </main>
 
