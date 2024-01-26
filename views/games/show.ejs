@@ -5,9 +5,9 @@
 	<h2>From the Elite Gamer, <%= game.owner.name %>! 😏</h2>
   <div class="content-box">
     <h1><%= game.name %> 🎮</h1>
-    <div>Status: <%= game.status %></div>
-    <br>
-    <div>Platform: <%= game.platform %></div>
+    <h3>Status: <%= game.status %></h3>
+    <h3>Platform: <%= game.platform %></h3>
+    <h3>Completed Date: <%= game.completedDate %></h3>
     <% if (game.owner.equals(user?.profile._id)) { %>
       <a href="/games/<%= game._id %>/edit">
         <button class="btn">Edit 🎮🚧</button>
@@ -29,23 +29,22 @@
         <button type="submit">Add Note</button>
       </form>
     <% } %>
-    <ul>
+    <table>
       <% game.notes?.forEach(note => { %>
-        <li>
-          <%= note.content%> 
-          &nbsp;at 
-          <%= note.createdAt.toLocaleString() %>
+        <tr>
+          <td><%= note.content%></td>
+          <td><%= note.createdAt.toLocaleString() %></td>
           <% if (note.author.equals(user?.profile._id)) { %>
-            <a href="/games/<%= game._id %>/notes/<%= note._id %>/edit">
-              <button class="btn edit-btn">Edit 📝</button>
-            </a>
-            <form action="/games/<%= game._id %>/notes/<%= note._id %>?_method=DELETE" method="POST">
+            <td><a href="/games/<%= game._id %>/notes/<%= note._id %>/edit">
+              <button class="btn edit-btn">Edit</button>
+            </a></td>
+            <td><form action="/games/<%= game._id %>/notes/<%= note._id %>?_method=DELETE" method="POST">
               <button class="btn delete-btn">X</button>
-            </form>
+            </form></td>
           <% } %> 
-        </li>
+        </tr>
       <% }) %>
-    </ul>
+      </table>
   </div>
 </main>
 
