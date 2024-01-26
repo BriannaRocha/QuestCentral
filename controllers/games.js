@@ -88,12 +88,22 @@ function deleteGame(req, res) {
     if (game.owner.equals(req.user.profile._id)) {
       game.deleteOne()
       .then(() => {
-        res.redirect('/games')
+        Review.findOne({game: req.params.gameId})
+        .then(review => {
+          review.deleteOne()
+          .then(() => {
+            res.redirect('/games')
+          })
+        })
       })
-    } else {
-      throw new Error ('🚫 Not authorized 🚫')
-    }   
-  })
+      } else {
+        throw new Error ('🚫 Not authorized 🚫')
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/games')
+    })
   .catch(err => {
     console.log(err)
     res.redirect('/games')
