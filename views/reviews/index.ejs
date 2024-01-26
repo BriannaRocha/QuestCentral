@@ -28,13 +28,13 @@
         <%= review.recommended ? 'Recommended' : 'Not Recommended' %>
       </div>
       <div>
-        <p> POSTED: <%= review.createdAt.toDateString() %> </p>
+        <p> POSTED: <%= review.createdAt.toLocaleDateString() %> </p>
       </div>
       <div>
         <p> <%= review.content %> </p>
       </div>
       <div>
-        <p> Rating: <%= review.rating %> /10 </p>
+        <p> Rating: <%= review.rating %> / 10 </p>
       </div>
       <% if (review.owner.equals(user?.profile._id)) { %>
         <a href="/reviews/<%= review._id %>/edit">
