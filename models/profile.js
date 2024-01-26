@@ -15,7 +15,6 @@ const gamertagSchema = new Schema({
 
 const profileSchema = new Schema({
   name: String,
-  age: Number,
   avatar: String,
   gamertags: [gamertagSchema]
 }, {
