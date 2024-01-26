@@ -9,7 +9,7 @@ const reviewSchema = new Schema({
   rating: {
     type: Number,
     min: 1,
-    max: 10
+    max: 5
   }, 
   recommended: Boolean,
   game: {type: Schema.Types.ObjectId, ref: "Game"},
